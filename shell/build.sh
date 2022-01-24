@@ -18,9 +18,10 @@ fullTag=$tagPrefix"-"$nowTimestamp
 fullCentOs="moqimoqidea/centos:$fullTag"
 fullUbuntu="moqimoqidea/ubuntu:$fullTag"
 
-printf "\n************************* start build and push %s, %s *************************\n\n" "$fullCentOs" "$fullUbuntu"
 
 # centos
+printf "\n************************* start build and push %s *************************\n\n" "$fullCentOs"
+
 docker build -f ../centos/Dockerfile -t "$fullCentOs" .
 
 if [ $? -ne 0 ]; then
@@ -41,6 +42,8 @@ fi
 
 
 # ubuntu
+printf "\n************************* start build and push %s *************************\n\n" "$fullUbuntu"
+
 docker build -f ../ubuntu/Dockerfile -t "$fullUbuntu" .
 
 if [ $? -ne 0 ]; then
