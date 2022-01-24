@@ -20,7 +20,7 @@ fullUbuntu="moqimoqidea/ubuntu:$fullTag"
 
 
 # centos
-printf "\n************************* start build and push %s *************************\n\n" "$fullCentOs"
+printf "\n************************* start build %s *************************\n\n" "$fullCentOs"
 
 docker build -f ../centos/Dockerfile -t "$fullCentOs" .
 
@@ -31,18 +31,9 @@ fi
 
 printf "\n************************* build %s success *************************\n\n" "$fullCentOs"
 
-docker push "$fullCentOs"
-
-if [ $? -ne 0 ]; then
-  printf "\n************************* push %s failed *************************\n\n" "$fullCentOs"
-  exit 1
-else
-  printf "\n************************* push %s success *************************\n\n" "$fullCentOs"
-fi
-
 
 # ubuntu
-printf "\n************************* start build and push %s *************************\n\n" "$fullUbuntu"
+printf "\n************************* start build %s *************************\n\n" "$fullUbuntu"
 
 docker build -f ../ubuntu/Dockerfile -t "$fullUbuntu" .
 
@@ -51,13 +42,4 @@ if [ $? -ne 0 ]; then
   exit 1
 else
   printf "\n************************* build %s success *************************\n\n" "$fullUbuntu"
-fi
-
-docker push "$fullUbuntu"
-
-if [ $? -ne 0 ]; then
-  printf "\n************************* push %s failed *************************\n\n" "$fullUbuntu"
-  exit 1
-else
-  printf "\n************************* push %s success *************************\n\n" "$fullUbuntu"
 fi
