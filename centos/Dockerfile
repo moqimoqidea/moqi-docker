@@ -1,6 +1,9 @@
 FROM centos:latest
 
-RUN yum -y update && yum -y install git python2 python39 vim zsh
+RUN yum -y update && \
+    yum -y install git python2 python39 vim zsh && \
+    yum clean all && \
+    rm -rf /var/cache/yum
 
 RUN dnf install -y util-linux-user && chsh -s $(which zsh)
 

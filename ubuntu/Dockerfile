@@ -1,8 +1,10 @@
 FROM ubuntu:latest
 
-RUN apt -y update && apt -y upgrade
-
-RUN apt -y install git python2 python3 curl zsh vim && chsh -s $(which zsh)
+RUN apt -y update && \
+    apt -y upgrade && \
+    apt -y install git python2 python3 curl zsh vim && \
+    rm -rf /var/lib/apt/lists/* && \
+    chsh -s $(which zsh)
 
 SHELL ["/bin/zsh", "-c"]
 
