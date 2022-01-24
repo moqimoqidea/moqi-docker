@@ -2,7 +2,7 @@ FROM centos:latest
 
 RUN yum -y update
 
-RUN yum -y install git python2 python39 zsh vim
+RUN yum -y install git python2 python39 vim zsh && dnf install util-linux-user && chsh -s $(which zsh)
 
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
