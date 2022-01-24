@@ -1,20 +1,16 @@
 #!/bin/sh
 
-# get timestamp
-nowTimestamp=$(date '+%Y%m%d%H%M%S')
-
 # get mac os version
 macOsFullName=$(uname -a)
 
-
 # shellcheck disable=SC2039
 if [[ $macOsFullName == *"arm"* ]]; then
-  tagPrefix="arm"
+  tagSuffix="arm"
 else
-  tagPrefix="intel"
+  tagSuffix="intel"
 fi
 
-fullTag=$tagPrefix"-"$nowTimestamp
+fullTag="latest-"$tagSuffix
 fullCentOs="moqimoqidea/centos:$fullTag"
 fullUbuntu="moqimoqidea/ubuntu:$fullTag"
 
