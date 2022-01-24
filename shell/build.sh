@@ -23,9 +23,9 @@ docker build -f ../centos/Dockerfile -t "$fullCentOs" .
 if [ $? -ne 0 ]; then
   printf "\n************************* build %s failed *************************\n\n" "$fullCentOs"
   exit 1
+else
+  printf "\n************************* build %s success *************************\n\n" "$fullCentOs"
 fi
-
-printf "\n************************* build %s success *************************\n\n" "$fullCentOs"
 
 
 # ubuntu
