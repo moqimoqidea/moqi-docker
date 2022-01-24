@@ -9,12 +9,12 @@ macOsFullName=$(uname -a)
 
 # shellcheck disable=SC2039
 if [[ $macOsFullName == *"arm"* ]]; then
-  tag="arm"
+  tagPrefix="arm"
 else
-  tag="x86"
+  tagPrefix="intel"
 fi
 
-fullTag=$tag"-"$nowTimestamp
+fullTag=$tagPrefix"-"$nowTimestamp
 fullCentOs="moqimoqidea/centos:$fullTag"
 fullUbuntu="moqimoqidea/ubuntu:$fullTag"
 
