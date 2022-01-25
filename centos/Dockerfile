@@ -5,7 +5,7 @@ RUN yum -y update && \
     yum clean all && \
     rm -rf /var/cache/yum
 
-RUN dnf install -y util-linux-user && chsh -s $(which zsh)
+RUN dnf install -y rpm-build util-linux-user && chsh -s $(which zsh)
 
 SHELL ["/bin/zsh", "-c"]
 
